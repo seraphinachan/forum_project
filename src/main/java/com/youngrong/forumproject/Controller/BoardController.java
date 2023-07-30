@@ -9,4 +9,9 @@ public class BoardController {
     public String indexPage() {
         return "index";
     }
+
+    @GetMapping("/new")
+    public String newPage() {
+        return "new";
+    }
 }

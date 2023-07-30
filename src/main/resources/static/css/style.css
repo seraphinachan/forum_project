@@ -1,0 +1,31 @@
+body {
+}
+
+.index-body {
+    margin: 30px !important;
+}
+
+.left-menu {
+    height: 500px;
+}
+
+.center-posts {
+
+}
+
+.right-tags {
+}
+
+.btn-log-in {
+    color: black;
+    text-decoration: none;
+}
+
+.btn-log-in:hover {
+    text-decoration: underline;
+}
+
+.form-control input_subject {
+    border: none;
+    font-weigh: bold;
+}

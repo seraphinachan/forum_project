@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
@@ -45,7 +48,7 @@
                 <h5 style="font-weight: bold;">Top</h5>
             </div>
             <div class="col-8 d-flex justify-content-md-end">
-                <button type="button" class="btn btn-primary btn-sm" style="margin-bottom: 10px;">Create</button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="writeNew()" style="margin-bottom: 10px;">Create</button>
             </div>
         </div>
 
@@ -111,5 +114,12 @@
 
 </div>
 
+<script>
+    function writeNew() {
+        window.location.href = "/new";
+    }
+</script>
+
 </body>
+
 </html>
