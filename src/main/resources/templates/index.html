@@ -23,7 +23,7 @@
             </form>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn me-md-2 btn-log-in" type="button">Log in</button>
+            <button class="btn me-md-2 btn-log-in" type="button" onclick="signUp()">Sign up</button>
             <button class="btn btn-outline-primary" type="button">Create account</button>
         </div>
     </div>
@@ -117,6 +117,12 @@
 <script>
     function writeNew() {
         window.location.href = "/new";
+    }
+</script>
+
+<script>
+    function signUp() {
+        window.location.href = "/signUp";
     }
 </script>
 
