@@ -24,16 +24,16 @@ body {
 
 /* Text Color */
 .text-whitesmoke {
-  color: whitesmoke;
+  color: #555;
 }
 .text-darkyellow {
-  color: rgba(255, 235, 59, 0.432);
+  color: #0d6efd;
 }
 
 /* Lines */
 
 .line-b {
-  border-bottom: 1px solid #ffeb3b !important;
+  border-bottom: 1px solid #0d6efd !important;
 }
 
 /* Buttons */
@@ -41,8 +41,8 @@ body {
   border-radius: 3px;
 }
 .form-button {
-  background-color: rgba(255, 235, 59, 0.24);
-  border-color: rgba(255, 235, 59, 0.24);
+  background-color: #0d6efd;
+  border-color: #0d6efd;
   color: #e6e6e6;
   width: 50%;
 }
@@ -54,8 +54,8 @@ body {
 .form-button:active:hover,
 .form-button.active:hover,
 .form-button.active:focus {
-  background-color: rgba(255, 235, 59, 0.473);
-  border-color: rgba(255, 235, 59, 0.473);
+  background-color: #0d6efd;
+  border-color: #0d6efd;
   color: #e6e6e6;
 }
 .button-l {
@@ -145,8 +145,8 @@ body {
 }
 .form-control:focus,
 .border-line:focus {
-  border-color: #ffeb3b;
-  background-color: #616161;
+  border-color: #0d6efd;
+  background-color: #fff;
   color: #e6e6e6;
 }
 .form-control,
@@ -164,10 +164,10 @@ body {
 /* Container */
 
 .container-content {
-  background-color: #3a3a3aa2;
+  background-color: #eee;
   color: inherit;
   padding: 15px 20px 20px 20px;
-  border-color: #ffeb3b;
+  border-color: #0d6efd;
   border-image: none;
   border-radius: 6px;
   border-style: solid solid none;
@@ -177,8 +177,7 @@ body {
 /* Backgrounds */
 
 .main-bg {
-  background: hsl(0, 50%, 97%);
-  background: linear-gradient(#565656, #ebebeb);
+  background: #fff;
 }
 
 /* Login & Register Pages*/
