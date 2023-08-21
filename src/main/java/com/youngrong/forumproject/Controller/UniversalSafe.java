@@ -12,6 +12,7 @@ public class UniversalSafe {
         String uuid;
     }
     private static String Username;
+    private static String name;
     /*This will be the primary key for manipulation via ODBC*/
     private static String uuid;
     private static String password;
@@ -21,7 +22,7 @@ public class UniversalSafe {
     public static String getUsername() {
         return Username;
     }
-    public static void saveUserName(String Mail, String User, String PW) {
+    public static void saveUserName(String Mail, String User, String PW, String NAME) {
         String sha512String = null;
         Logger logger = Logger.getLogger("com.youngrong.forumproject");
         try {
@@ -39,6 +40,9 @@ public class UniversalSafe {
             sha512String = String.format("%0128x", new BigInteger(1,mDigest.digest()));
             uuid = UUID.randomUUID().toString();
             recoveryTable.uuid =  UUID.randomUUID().toString();
+            mDigest.update(NAME.getBytes());
+            sha512String = String.format("%0128x", new BigInteger(1,mDigest.digest()));
+            name = sha512String;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -15,16 +15,16 @@ import org.xml.sax.InputSource;
 public class BoardController {
     @GetMapping("/")
     public String indexPage() {
-        return "index";
+        return "index.html";
     }
 
-    @GetMapping("/")
-    public String registerPage() {
-        return "register";
-    }
     @GetMapping("/register")
-    public void DataBaseManipulation()  {
-        String rawURL = "https://localhost:8080/register";
+    public String registerFront() {
+        return "register.html";
+    }
+    @GetMapping("/okay")
+    public String regTask() {
+        String rawURL = "https://localhost:8080/register.html";
         URL url = null;
         try {
             url = new URL(rawURL);
@@ -49,14 +49,17 @@ public class BoardController {
             String mail = doc.getElementById("user-mail").getTextContent();
             String name = doc.getElementById("user-name").getTextContent();
             String pw  = doc.getElementById("user-pw").getTextContent();
-            UniversalSafe.saveUserName(mail,name,pw);
+            String rn  = doc.getElementById("user-rn").getTextContent();
+            UniversalSafe.saveUserName(mail,name,pw,rn);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return "okay.html";
     }
+
 
     @GetMapping("/new")
     public String newPage() {
-        return "new";
+        return "new.html";
     }
 }
