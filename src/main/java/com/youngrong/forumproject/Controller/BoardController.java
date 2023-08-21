@@ -1,7 +1,11 @@
-package com.youngrong.forumproject.BoardController;
+package com.youngrong.forumproject.Controller;
 import java.io.InputStreamReader;
 import java.io.FileInputStream;
 import java.net.*;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import java.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,21 +23,36 @@ public class BoardController {
         return "register";
     }
     @GetMapping("/register")
-    public String DataBaseManipulation()  {
+    public void DataBaseManipulation()  {
         String rawURL = "https://localhost:8080/register";
-        URL url = new URL(rawURL);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStreamReader()));
+        URL url = null;
+        try {
+            url = new URL(rawURL);
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        BufferedReader rd = null;
+        try {
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String FORMS = null;
-        for(String line = br.readLine();line!=null; FORMS+=line,line=br.readLine());
-        DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = fac.newDocumentBuilder();
-        InputSource iSrc = new InputSource(new StringReader(FORMS));
-        Document doc = builder.parse(iSrc);
-        String mail = doc.getElementById("user-mail").getText();
-        String name = doc.getElementById("user-name").getText();
-        String pw  = doc.getElementById("user-pw").getText();
-        UniversalSafe.saveUserName(mail,name,pw);
+        try {
+            for(String line = rd.readLine();line!=null; FORMS+=line,line=rd.readLine());
+            DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = fac.newDocumentBuilder();
+            InputSource iSrc = new InputSource(new StringReader(FORMS));
+            Document doc = builder.parse(iSrc);
+            String mail = doc.getElementById("user-mail").getTextContent();
+            String name = doc.getElementById("user-name").getTextContent();
+            String pw  = doc.getElementById("user-pw").getTextContent();
+            UniversalSafe.saveUserName(mail,name,pw);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping("/new")

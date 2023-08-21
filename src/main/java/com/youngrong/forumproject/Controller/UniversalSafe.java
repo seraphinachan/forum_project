@@ -1,4 +1,4 @@
-package com.youngrong.forumproject.BoardController;
+package com.youngrong.forumproject.Controller;
 import java.time.*;
 import java.util.logging.*;
 import java.math.BigInteger;
@@ -41,35 +41,11 @@ public class UniversalSafe {
             recoveryTable.uuid =  UUID.randomUUID().toString();
         } catch (Exception e) {
             e.printStackTrace();
-            storeError(e);
         }
         /** TODO: Implementation for UUID duplication check */
         /** TODO: Implementation for MySQL ODBC */
 
 
     }
-
-
-
-
-    public static checkForErr export;
-    private static boolean errorStat = false;
-    private static Exception storedError = null;
-    public static boolean isError() {
-        return errorStat;
-    }
-    public static Exception getExceptionClass() {
-        if(isError()) {
-            export.e = storedError;
-            export.err = true;
-        } else {
-                export.err=false;
-        }
-        return export.e;
-    }
-    public static void storeError(Exception e) {
-            errorStat = true;
-            storedError = e;
-    }
-
 }
+
